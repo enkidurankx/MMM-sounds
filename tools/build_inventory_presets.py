@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
-"""MMM Sound Library: baut inventory.csv aus dem, was wirklich unter presets/ liegt (Stand 02.10.2026, Struktur vom Owner aufgeräumt).
+"""MMM Sound Library: baut inventory.csv aus dem, was wirklich unter sound_library/ liegt (Stand 02.10.2026, Struktur vom Owner aufgeräumt).
 
-usage: python3 sounds-library/tools/build_inventory_presets.py   (im Repo-Root)
+usage: python3 tools/build_inventory_presets.py   (im Repo-Root)
 - Karte 00 (Japan Operator-Set, Bestand des Owners) liegt nicht im Repo, die Zeilen bleiben aus der bisherigen CSV.
-- Karte 01 Drums + Tsuzumi, Karte 02 Saiten (pausiert) und Karte 03 Gamelan werden aus den Dateien unter presets/ erzeugt.
+- Karte 01 Drums + Tsuzumi, Karte 02 Saiten (pausiert) und Karte 03 Gamelan werden aus den Dateien unter sound_library/ erzeugt.
 - Gleiche Datei in mehreren Ordnern: eine Zeile, Spalte Pfad enthält alle Fundorte, Notiz 'doppelt abgelegt'.
 - Gamelan-Zeilen übernehmen Gruppe/Notiz aus der bisherigen CSV (gmln.4 v2.0), nur die Spalte Pfad kommt neu hinzu.
 Status 'berechnet' = nichts in Live/am Gerät gehört; 'pausiert' = Koto/Shamisen, Thema ruht.
 """
 import csv, os, re
-ROOT = 'presets'; OUT = 'sounds-library/inventory.csv'
+ROOT = 'sound_library'; OUT = 'sound_library/inventory.csv'
 HEAD = ['Karte', 'Gruppe', 'Instrument', 'Kürzel', 'Variante', 'Gerät', 'Datei', 'Quelle', 'Status', 'Notiz', 'Pfad']
 old = list(csv.reader(open(OUT, encoding='utf8')))
 meta = {r[6]: r for r in old[1:] if r and r[0].startswith('03 ')}
@@ -18,7 +18,7 @@ rows = [HEAD] + [r + [''] * (11 - len(r)) for r in old[1:] if r and r[0].startsw
 found = {}                                           # Dateiname → [Pfade]
 for d, _, fs in os.walk(ROOT):
     for f in fs:
-        if f.startswith('.'): continue
+        if f.startswith('.') or f == 'inventory.csv': continue
         found.setdefault(f, []).append(os.path.relpath(os.path.join(d, f), ROOT))
 STRING = re.compile(r'KOTO|SHAMI|SHM_|koto_|shami_', re.I)
 

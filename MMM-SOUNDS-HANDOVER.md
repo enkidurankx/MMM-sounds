@@ -19,15 +19,15 @@ Exciter → Resonator → Bend (Spannung/Pitch-Hüllkurve) → Drive/Nichtlinear
 
 ## 3. Bestehende Sound Cards
 
-**Nummerierung (abgeglichen 02.10.2026):** 00 = Japan Operator-Set des Owners (Bestand, 34 Dateien, nicht von uns gebaut, nicht im Repo) · 01 = Drums + Tsuzumi · 02 = Saiten Koto/Shamisen (**pausiert**; die Dateien liegen in `presets/_Sound Collection Asia/MMM-Japan/` und stehen im Inventar mit Status „pausiert“) · 03 = Gamelan (`sounds-library/gamelan/README.md`). Gesamtübersicht: `sounds-library/inventory.csv` mit Spalte `Pfad` (erzeugt von `sounds-library/tools/build_inventory_presets.py`, liest `presets/`; `build_inventory.py` und `build_inventory_card01.py` sind damit abgelöst).
+**Nummerierung (abgeglichen 02.10.2026):** 00 = Japan Operator-Set des Owners (Bestand, 34 Dateien, nicht von uns gebaut, nicht im Repo) · 01 = Drums + Tsuzumi · 02 = Saiten Koto/Shamisen (**pausiert**; die Dateien liegen in `sound_library/_Sound Collection Asia/MMM-Japan/` und stehen im Inventar mit Status „pausiert“) · 03 = Gamelan (`docs/Karte-03-Gamelan.md`). Gesamtübersicht: `sound_library/inventory.csv` mit Spalte `Pfad` (erzeugt von `tools/build_inventory_presets.py`, liest `presets/`; `build_inventory.py` und `build_inventory_card01.py` sind damit abgelöst).
 
-**Card 01 (Drums/Percussion):** Referenz `sounds-library/tools/cards.js`, Renderer `renderKick/renderKot/renderOts`.
+**Card 01 (Drums/Percussion):** Referenz `tools/cards.js`, Renderer `renderKick/renderKot/renderOts`.
 - **KICK modern:** Tune 46,25 Hz, Pitch-Dive 28 Halbtöne τ 35 ms, Body τ 0,14 s, Drive 2,2, Klick (HP 3 kHz, τ 4 ms), Glide τ 60 ms, **Rumble** (Level 0,38, τ 0,25 s, Delay 20 ms, Rise 50 ms, Drift, Beat 0,6 Hz, Sättigung, LP 180 Hz). Varianten Tight/Slide.
 - **KOT (Ko-tsuzumi):** f0 290,3 Hz (Ichikotsu), Teiltöne ~ 1 / 2,02 / 3,03 / 4,04 / 5,05 (nahe harmonisch, weil ringförmige Membran + Chōshigami-Belastung), Zustände pon / pu (−5 st) / ta (+5) / chi (+7), Feuchte-Makro, Bend (Squeeze).
 - **OTS (Ō-tsuzumi):** f0 = 290,3 × 2^(6/12); ideale Kreismembran, **Bessel-Verhältnisse** 1 : 1,594 : 2,136 : 2,295 : 2,653 …, T60 120…40 ms, trockenes hartes Leder; Zustände chon / kan.
 - Realisiert für: Operator (Live Set + `.adv`), Collision (Membrane/String), FM-1, MicroFreak, Volca Drum (MIDI), Web-Hörprobe.
 
-**Card 02 (Saiten) — PAUSIERT, nicht abgeglichen:** Referenz `sounds-library/saiten-baustelle/strings.js` (Digital-Waveguide, Node + Browser). Kurzstand: Koto-Rack v14, Shamisen-Rack v8; Rack-Format und Tension-Pressure-Liste stehen in der Baustelle-README.
+**Card 02 (Saiten) — PAUSIERT, nicht abgeglichen:** Referenz `tools/saiten-baustelle/strings.js` (Digital-Waveguide, Node + Browser). Kurzstand: Koto-Rack v14, Shamisen-Rack v8; Rack-Format und Tension-Pressure-Liste stehen in der Baustelle-README.
 - **Koto:** Hirajōshi in D = D3 G3 A3 B♭3 D4 E♭4 G4 A4 B♭4 D5 E♭5 G5 A5 (Quelle koto.sapp.org); Tsume nahe am Steg (Position ≈ 0,05 → Kammfilter, nasal); T60 ≈ 3,2 s; Gesten tsume, **oshide** (Druck hinter dem Steg, Ton steigt nur aufwärts, bis ~1,5 Töne), oshi-hanashi, yuri (Vibrato nur aufwärts), awase.
 - **Shamisen:** Stimmungen honchōshi 1-4-1 (0,5,12), niagari 1-5-1 (0,7,12), sangari 1-4-♭7 (0,5,10); Bachi trifft Saite **und** Fell (Fell-Moden 190/340 Hz: **Annahme**), **Sawari** = erste Saite liegt auf dem sawari-yama-Steg, schnarrt, Obertöne „blühen“; Gesten uchi, sukui, hajiki, suri.
 - Referenzton 145,15 Hz (= 290,3/2).
@@ -59,16 +59,16 @@ Exciter → Resonator → Bend (Spannung/Pitch-Hüllkurve) → Drive/Nichtlinear
 
 ## 5. Ordner und Dateien
 
-**Dieses Repo `enkidurankx/MMM-sounds`** ist der Ort für alles zu den Sounds. Das öffentliche `enkidurankx/MMM` enthält nur noch Web-Apps, Hub und `MMM-HANDOVER.md`; `sounds-library/` und diese Übergabe wurden dort am 02.10.2026 entfernt (die Historie davor bleibt öffentlich). **Sichtbarkeit des Repos: unklar, es ließ sich ohne Anmeldung klonen, also vermutlich öffentlich — der Owner prüft das.**
+**Dieses Repo `enkidurankx/MMM-sounds`** ist der Ort für alles zu den Sounds. Das öffentliche `enkidurankx/MMM` enthält nur noch Web-Apps, Hub und `MMM-HANDOVER.md`; `sounds-library/` (heute `sound_library/`, `tools/`) und diese Übergabe wurden dort am 02.10.2026 entfernt (die Historie davor bleibt öffentlich). **Sichtbarkeit des Repos: unklar, es ließ sich ohne Anmeldung klonen, also vermutlich öffentlich — der Owner prüft das.**
 
-Struktur (vom Owner aufgeräumt, `presets/` genau so übernommen):
-- `presets/_Sound Collection Asia/MMM-Gamelan/{Operator,Collision}` — Karte 03, 44 + 43 Presets (`.adv`).
-- `presets/_Sound Collection Asia/MMM-Japan/` — `Patches/{Ableton,FM-1,MicroFreak,Volca Drum,Web (MMM)}` und `Audio-Referenz/`; enthält Karte 01 (Kick, Snare, Hi-Hat, Clap, Cymbal, Ko-/Ō-Tsuzumi) **und** Karte 02 (Koto, Shamisen, pausiert).
-- `presets/_Sound Collection Drums/Patches/{Ableton,FM-1,MicroFreak,Volca Drum}` — Kick, Snare, Hi-Hat, Cymbal-Näherung, FM-1/MicroFreak/Volca-Teil. **Doppelt abgelegt:** die Kick-, Snare- und Hi-Hat-Dateien (Ableton, FM-1, MicroFreak, Volca-MIDI) liegen auch in `MMM-Japan`; das Inventar führt je eine Zeile mit beiden Pfaden und der Notiz „doppelt abgelegt“.
+Struktur (Ordner `presets/` wurde am 02.10.2026 zu `sound_library/`; Inhalt unverändert):
+- `sound_library/_Sound Collection Asia/MMM-Gamelan/{Operator,Collision}` — Karte 03, 44 + 43 Presets (`.adv`).
+- `sound_library/_Sound Collection Asia/MMM-Japan/` — `Patches/{Ableton,FM-1,MicroFreak,Volca Drum,Web (MMM)}` und `Audio-Referenz/`; enthält Karte 01 (Kick, Snare, Hi-Hat, Clap, Cymbal, Ko-/Ō-Tsuzumi) **und** Karte 02 (Koto, Shamisen, pausiert).
+- `sound_library/_Sound Collection Drums/Patches/{Ableton,FM-1,MicroFreak,Volca Drum}` — Kick, Snare, Hi-Hat, Cymbal-Näherung, FM-1/MicroFreak/Volca-Teil. **Doppelt abgelegt:** die Kick-, Snare- und Hi-Hat-Dateien (Ableton, FM-1, MicroFreak, Volca-MIDI) liegen auch in `MMM-Japan`; das Inventar führt je eine Zeile mit beiden Pfaden und der Notiz „doppelt abgelegt“.
 - `templates/` — die leeren `.adv` des Owners (Operator, Collision, Tension); die Generatoren ersetzen nur `<Manual Value>`.
 - `docs/` — japanische Instrumenten- und Rhythmusliste (Quellen zu Karte 00).
-- `sounds-library/inventory.csv` — eine Zeile pro Klang und Gerät mit Pfad. `sounds-library/tools/` — Generatoren (Karte 01, Gamelan, Inventar). `sounds-library/gamelan/README.md` — Karte 03. `sounds-library/saiten-baustelle/` — pausierter Saiten-Code (Renderer, Rack-Builder).
-- Die Skripte nehmen die Gamelan-App `gamelan-v2_0.html` aus dem öffentlichen Repo (nebeneinander auschecken, siehe `README.md`); die Ausgabepfade der Gamelan-Skripte zeigen jetzt auf `presets/_Sound Collection Asia/MMM-Gamelan/`.
+- `sound_library/inventory.csv` — eine Zeile pro Klang und Gerät mit Pfad. `tools/` — Generatoren (Karte 01, Gamelan, Inventar). `docs/Karte-03-Gamelan.md` — Karte 03. `tools/saiten-baustelle/` — pausierter Saiten-Code (Renderer, Rack-Builder).
+- Die Skripte nehmen die Gamelan-App `gamelan-v2_0.html` aus dem öffentlichen Repo (nebeneinander auschecken, siehe `README.md`); die Ausgabepfade der Gamelan-Skripte zeigen jetzt auf `sound_library/_Sound Collection Asia/MMM-Gamelan/`.
 
 **Google Drive** (Owner enkidu.rankx@gmail.com), MMM = `1p_aR5c8gOHezB-wx2dd9GIHbinWKm-xF`, darin `Sounds` = `19QyZbDJe_yC3kWOcGXQxWYWZvg4wBQRh`: Dokumente 01 bis 06 sowie 04a (Gamelan-Nachtrag), Inventar-Sheet; Patches (nur Textdateien und wenige `.adv`/`.syx`).
 Ableton-Vorlagen des Owners liegen jetzt in `templates/`; `Played_12.als` und `Tension_Multichain.adg` nicht — für `build_als.py` und die Rack-Builder muss der Owner sie wieder hochladen.
@@ -85,7 +85,7 @@ Ableton-Vorlagen des Owners liegen jetzt in `templates/`; `Played_12.als` und `T
 
 ## 7. Gamelan / Indonesien — Stand
 
-Die Indonesien-Session hat Karte 03 gebaut: 44 Operator-Presets und 43 Collision-Presets aus `gmln.4 v2.0` (`sounds-library/gamelan/README.md`, Generatoren `tools/build_gamelan_adv.py`, `tools/build_gamelan_collision.py`). Doc 04 in Drive und die App `gamelan-v2_0.html` sind die Quelle. Offene Unterschiede zu den übrigen Karten: Referenzton C4 statt Ichikotsu 290,3 Hz, gleichstufig statt Laras-Cent-Tuning, Ombak als Verstimmung des zweiten Trägers. Gamelan und Japan-Karte sollen dieselben Konventionen nutzen (Variation pro Anschlag, Inventar-Zeile pro Sound und Gerät).
+Die Indonesien-Session hat Karte 03 gebaut: 44 Operator-Presets und 43 Collision-Presets aus `gmln.4 v2.0` (`docs/Karte-03-Gamelan.md`, Generatoren `tools/build_gamelan_adv.py`, `tools/build_gamelan_collision.py`). Doc 04 in Drive und die App `gamelan-v2_0.html` sind die Quelle. Offene Unterschiede zu den übrigen Karten: Referenzton C4 statt Ichikotsu 290,3 Hz, gleichstufig statt Laras-Cent-Tuning, Ombak als Verstimmung des zweiten Trägers. Gamelan und Japan-Karte sollen dieselben Konventionen nutzen (Variation pro Anschlag, Inventar-Zeile pro Sound und Gerät).
 
 ## 8. Konventionen für Konsistenz
 
@@ -105,11 +105,11 @@ Die Indonesien-Session hat Karte 03 gebaut: 44 Operator-Presets und 43 Collision
 ## 10. Stand der Ablage (02.10.2026)
 - Öffentliches Repo `enkidurankx/MMM`: Hub mit 46 Kacheln (alle Symbole eindeutig), rb88-Altversionen gelöscht, `native/` (mmm-clock, age12, pc-control), `tests/`, `MMM-SESSIONS.md` (Regeln und Log für alle Sessions), `MMM-HANDOVER.md` (inkl. Volca-Zeile).
 - Dieses Repo: Presets in der Ordnerstruktur des Owners (`_Sound Collection Asia`, `_Sound Collection Drums`), Inventar mit Pfaden (194 Zeilen: 34 Karte 00 Bestand, 43 Karte 01, 30 Karte 02 pausiert, 87 Karte 03).
-- Offen: Sichtbarkeit dieses Repos (siehe §5). Inventar-Zeilen der Karte 00 haben keinen Pfad (Dateien nicht im Repo). Das alte `presets/03-gamelan` ist durch `MMM-Gamelan` ersetzt (Datei für Datei identisch, vor dem Löschen geprüft).
+- Offen: Sichtbarkeit dieses Repos (siehe §5). Inventar-Zeilen der Karte 00 haben keinen Pfad (Dateien nicht im Repo). Das alte `03-gamelan` ist durch `MMM-Gamelan` ersetzt (Datei für Datei identisch, vor dem Löschen geprüft).
 
 ## 11. Für Sessions, die an Sounds arbeiten
 1. Arbeite in diesem Repo, nicht im öffentlichen. Hol `main`, bevor du anfängst.
-2. Neue Dateien nur unter `presets/` in der vorhandenen Ordnerstruktur ablegen; danach `python3 sounds-library/tools/build_inventory_presets.py` laufen lassen (aktualisiert die CSV samt Pfaden). Neue Karten ab 04; 00, 01, 02, 03 nicht umnummerieren.
+2. Neue Dateien nur unter `sound_library/` in der vorhandenen Ordnerstruktur ablegen; danach `python3 tools/build_inventory_presets.py` laufen lassen (aktualisiert die CSV samt Pfaden). Neue Karten ab 04; 00, 01, 02, 03 nicht umnummerieren.
 3. Status bleibt „berechnet“, bis der Owner sagt, dass er es gehört hat. Koto/Shamisen (Karte 02) bleiben „pausiert“.
 4. Hub-Kacheln und Apps gehören ins öffentliche Repo (`MMM-SESSIONS.md` dort lesen). Nichts Sound-bezogenes dorthin.
 5. Binärdateien nicht über Drive-MCP schreiben; per Download-Karte an den Owner.

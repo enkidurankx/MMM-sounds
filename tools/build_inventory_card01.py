@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """MMM Sound Library: adds Karte 01 (Drums + Tsuzumi, 02.10.2026 abgeglichen) to inventory.csv. Idempotent: removes old '01 ...' rows first.
 usage: python3 build_inventory_card01.py inventory.csv
-Koto/Shamisen (Sounds 02) sind absichtlich NICHT enthalten, siehe sounds-library/saiten-baustelle/README.md.
+Koto/Shamisen (Sounds 02) sind absichtlich NICHT enthalten, siehe tools/saiten-baustelle/README.md.
 Die Dateien liegen im Paket MMM-Sounds-01.zip beim Owner (nicht im Repo); Status 'berechnet' = nichts in Live/am Gerät gehört.
 """
 import csv, sys
