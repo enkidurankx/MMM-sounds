@@ -6,7 +6,7 @@ Zentrale, generative Sound Library (keine Samples). Das öffentliche Repo `enkid
 | Pfad | Inhalt |
 |---|---|
 | `MMM-SOUNDS-HANDOVER.md` | Übergabe: Arbeitsweise, Karten, Plattform-Fakten, Konventionen |
-| `sounds-library/inventory.csv` | eine Zeile pro Klang und Gerät (Karten 00, 01, 03) |
+| `sounds-library/inventory.csv` | eine Zeile pro Klang und Gerät mit Pfad (Karten 00, 01, 02 pausiert, 03); erzeugt von `tools/build_inventory_presets.py` |
 | `sounds-library/gamelan/README.md` | Karte 03, Benutzung und Ungeprüft-Liste |
 | `sounds-library/tools/` | Generatoren (Karte 01, Gamelan, Inventar) |
 | `sounds-library/saiten-baustelle/` | pausiert: Koto und Shamisen, nicht anfassen |

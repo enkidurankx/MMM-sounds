@@ -1,4 +1,4 @@
-# MMM Sound Library — Handover (Stand 02.10.2026, auf `main`, mit Repo abgeglichen)
+# MMM Sound Library — Handover (Stand 02.10.2026, Repo `enkidurankx/MMM-sounds`, Ordner vom Owner aufgeräumt)
 
 Für eine neue Session mit anderem Fokus (z. B. Indonesien/Gamelan), die konsistent mit der bisherigen Arbeit weiterbauen soll. Zuerst lesen: Abschnitte 1, 2 und 8. Alles hier ist aus der bisherigen Arbeit abgeleitet; was **ungeprüft** ist, steht ausdrücklich so da.
 
@@ -19,7 +19,7 @@ Exciter → Resonator → Bend (Spannung/Pitch-Hüllkurve) → Drive/Nichtlinear
 
 ## 3. Bestehende Sound Cards
 
-**Nummerierung (abgeglichen 02.10.2026):** 00 = Japan Operator-Set des Owners (Bestand, 34 Dateien, nicht von uns gebaut) · 01 = Drums + Tsuzumi (diese Session) · 02 = Saiten Koto/Shamisen (**pausiert**, siehe `sounds-library/saiten-baustelle/README.md`, nicht im Inventar) · 03 = Gamelan (Indonesien-Session, `sounds-library/gamelan/README.md`). Gesamtübersicht: `sounds-library/inventory.csv` (Generatoren `tools/build_inventory.py` und `tools/build_inventory_card01.py`).
+**Nummerierung (abgeglichen 02.10.2026):** 00 = Japan Operator-Set des Owners (Bestand, 34 Dateien, nicht von uns gebaut, nicht im Repo) · 01 = Drums + Tsuzumi · 02 = Saiten Koto/Shamisen (**pausiert**; die Dateien liegen in `presets/_Sound Collection Asia/MMM-Japan/` und stehen im Inventar mit Status „pausiert“) · 03 = Gamelan (`sounds-library/gamelan/README.md`). Gesamtübersicht: `sounds-library/inventory.csv` mit Spalte `Pfad` (erzeugt von `sounds-library/tools/build_inventory_presets.py`, liest `presets/`; `build_inventory.py` und `build_inventory_card01.py` sind damit abgelöst).
 
 **Card 01 (Drums/Percussion):** Referenz `sounds-library/tools/cards.js`, Renderer `renderKick/renderKot/renderOts`.
 - **KICK modern:** Tune 46,25 Hz, Pitch-Dive 28 Halbtöne τ 35 ms, Body τ 0,14 s, Drive 2,2, Klick (HP 3 kHz, τ 4 ms), Glide τ 60 ms, **Rumble** (Level 0,38, τ 0,25 s, Delay 20 ms, Rise 50 ms, Drift, Beat 0,6 Hz, Sättigung, LP 180 Hz). Varianten Tight/Slide.
@@ -59,17 +59,19 @@ Exciter → Resonator → Bend (Spannung/Pitch-Hüllkurve) → Drive/Nichtlinear
 
 ## 5. Ordner und Dateien
 
-**Repo `enkidurankx/MMM`** (Hub: https://enkidurankx.github.io/MMM/). Branches: `main` (Hub), `ccr-2fa452eb-qj035b` (diese Session, mit `main` und Sounds 03 abgeglichen), `claude/elegant-maxwell-yise0m` (Gamelan, Sounds 03, bereits in den ccr-Branch gemergt), `claude/cool-galileo-xmtta5` (native/pc-control, tests, neuere `MMM-HANDOVER.md`). Nach `main` wird nur auf ausdrückliche Anweisung gemerged, kein PR ohne Auftrag.
-- `sounds-library/tools/` — Generatoren Karte 01 (`cards.js`, `fm1.js`, `mf_volca.js`, `verify.js`, `build_als.py`, `build_adv.py`) und Karte 03 (`build_gamelan_*.py`) sowie Inventar-Skripte.
-- `sounds-library/gamelan/` — README Sounds 03. `sounds-library/inventory.csv` — Übersicht aller Sounds und Geräte (Status pflegt der Owner im Sheet).
-- `sounds-library/saiten-baustelle/` — pausierte Saiten (Koto, Shamisen), bewusst nicht im Inventar.
-- `volcadrum-editor-v0_1.html` — Volca-Drum-Organizer, Hub-Kachel Symbol `▐` (vorher `◉`, doppelt vergeben mit Sp&Sp). Die Version v0.2 mit Saiten-Startern wurde zurückgenommen.
-- `MMM-SOUNDS-HANDOVER.md` — dieses Dokument.
+**Dieses Repo `enkidurankx/MMM-sounds`** ist der Ort für alles zu den Sounds. Das öffentliche `enkidurankx/MMM` enthält nur noch Web-Apps, Hub und `MMM-HANDOVER.md`; `sounds-library/` und diese Übergabe wurden dort am 02.10.2026 entfernt (die Historie davor bleibt öffentlich). **Sichtbarkeit des Repos: unklar, es ließ sich ohne Anmeldung klonen, also vermutlich öffentlich — der Owner prüft das.**
 
-**Google Drive** (Owner enkidu.rankx@gmail.com), MMM = `1p_aR5c8gOHezB-wx2dd9GIHbinWKm-xF`, darin `Sounds` = `19QyZbDJe_yC3kWOcGXQxWYWZvg4wBQRh`:
-- `Dokumente` (`11ncZaS0NZslBowAgZHrJIwFEGTRMGMf4`): 01 Recherche & Systematik, 02 Tiefenanalyse (Tsuzumi), 03 Entwicklung/Richtung, 04 Gamelan, 05 Sound Cards, 06 Saiteninstrumente (Koto & Shamisen, pausiert).
-- `Patches` (`1aii9PaGgk6J-XS-IqOHq9dukJuk3PQbo`): FM-1, MicroFreak, Volca Drum, Ableton (Rezepte-Doc, READMEs, zwei `.adv`), Web (MMM).
-- Die ZIP-Pakete (`MMM-Sounds-01.zip` und weitere) liegen nur beim Owner. Die Skripte brauchen seine Ableton-Vorlagen (`Operator.adv`, `Collision.adv`, DS-Vorlagen, `Played_12.als`), die nicht im Repo sind.
+Struktur (vom Owner aufgeräumt, `presets/` genau so übernommen):
+- `presets/_Sound Collection Asia/MMM-Gamelan/{Operator,Collision}` — Karte 03, 44 + 43 Presets (`.adv`).
+- `presets/_Sound Collection Asia/MMM-Japan/` — `Patches/{Ableton,FM-1,MicroFreak,Volca Drum,Web (MMM)}` und `Audio-Referenz/`; enthält Karte 01 (Kick, Snare, Hi-Hat, Clap, Cymbal, Ko-/Ō-Tsuzumi) **und** Karte 02 (Koto, Shamisen, pausiert).
+- `presets/_Sound Collection Drums/Patches/{Ableton,FM-1,MicroFreak,Volca Drum}` — Kick, Snare, Hi-Hat, Cymbal-Näherung, FM-1/MicroFreak/Volca-Teil. **Doppelt abgelegt:** die Kick-, Snare- und Hi-Hat-Dateien (Ableton, FM-1, MicroFreak, Volca-MIDI) liegen auch in `MMM-Japan`; das Inventar führt je eine Zeile mit beiden Pfaden und der Notiz „doppelt abgelegt“.
+- `templates/` — die leeren `.adv` des Owners (Operator, Collision, Tension); die Generatoren ersetzen nur `<Manual Value>`.
+- `docs/` — japanische Instrumenten- und Rhythmusliste (Quellen zu Karte 00).
+- `sounds-library/inventory.csv` — eine Zeile pro Klang und Gerät mit Pfad. `sounds-library/tools/` — Generatoren (Karte 01, Gamelan, Inventar). `sounds-library/gamelan/README.md` — Karte 03. `sounds-library/saiten-baustelle/` — pausierter Saiten-Code (Renderer, Rack-Builder).
+- Die Skripte nehmen die Gamelan-App `gamelan-v2_0.html` aus dem öffentlichen Repo (nebeneinander auschecken, siehe `README.md`); die Ausgabepfade der Gamelan-Skripte zeigen jetzt auf `presets/_Sound Collection Asia/MMM-Gamelan/`.
+
+**Google Drive** (Owner enkidu.rankx@gmail.com), MMM = `1p_aR5c8gOHezB-wx2dd9GIHbinWKm-xF`, darin `Sounds` = `19QyZbDJe_yC3kWOcGXQxWYWZvg4wBQRh`: Dokumente 01 bis 06 sowie 04a (Gamelan-Nachtrag), Inventar-Sheet; Patches (nur Textdateien und wenige `.adv`/`.syx`).
+Ableton-Vorlagen des Owners liegen jetzt in `templates/`; `Played_12.als` und `Tension_Multichain.adg` nicht — für `build_als.py` und die Rack-Builder muss der Owner sie wieder hochladen.
 
 ## 6. Technischer Workflow der bisherigen Session
 
@@ -100,16 +102,14 @@ Die Indonesien-Session hat Karte 03 gebaut: 44 Operator-Presets und 43 Collision
 - Spieltechniken in Live: Idee-Sammlung liegt im Chat-Verlauf (Pro-Note-Expression zeichnen, M4L-Generatoren, Browser-Geste-Pad per Web MIDI, MIDI-Clip-Bibliothek, Rack-Makros); noch nichts gebaut, Owner entscheidet.
 - Sounds-02-Patches und ZIPs in Drive ablegen (manuell durch den Owner).
 
-## 10. Abgleich 02.10.2026 — was geprüft und geändert wurde (auf `main` seit Commit `bccc525`)
-- Hub: 46 Kacheln, alle Zieldateien vorhanden, Weiterleitungen und Versionen stimmig, **alle Symbole eindeutig** (Volca Drum `▐`, Disk.rot `▗`, FOCUS `◎`).
-- Aufgeräumt: `rb88-v4_9`, `rb88-v4_25`, `rb88-v4_26` gelöscht (Hub und `rb88/` zeigen auf `rb88-v4_27.html`).
-- Zusammengeführt auf `main`: Sounds 03 (Gamelan, Branch `claude/elegant-maxwell-yise0m`), Inventar `sounds-library/inventory.csv` mit Karte 00 (Japan Operator-Set, Bestand), 01 (Drums + Tsuzumi) und 03 (Gamelan), Generatoren unter `sounds-library/tools/`, die pausierte Saiten-Baustelle unter `sounds-library/saiten-baustelle/`.
-- `MMM-HANDOVER.md` (Branch `claude/cool-galileo-xmtta5`): Volca-Zeile in §9 aktualisiert (Commit `4b4c095`). Auf `main` fehlt dort noch der ganze §9/§10 und `native/pc-control`, `tests/` — das liegt weiterhin nur auf diesem Branch.
-- Offene Branches: `claude/bitte-pushen-qa8ae4` und `claude/vj-tools-kategorie-xg05pr` (laut Zählung nichts Neues gegenüber `main`, nur hinterher), `claude/cool-galileo-xmtta5` (Handover, pc-control, tests), `ccr-2fa452eb-qj035b` (diese Session, identisch mit `main`).
+## 10. Stand der Ablage (02.10.2026)
+- Öffentliches Repo `enkidurankx/MMM`: Hub mit 46 Kacheln (alle Symbole eindeutig), rb88-Altversionen gelöscht, `native/` (mmm-clock, age12, pc-control), `tests/`, `MMM-SESSIONS.md` (Regeln und Log für alle Sessions), `MMM-HANDOVER.md` (inkl. Volca-Zeile).
+- Dieses Repo: Presets in der Ordnerstruktur des Owners (`_Sound Collection Asia`, `_Sound Collection Drums`), Inventar mit Pfaden (194 Zeilen: 34 Karte 00 Bestand, 43 Karte 01, 30 Karte 02 pausiert, 87 Karte 03).
+- Offen: Sichtbarkeit dieses Repos (siehe §5). Inventar-Zeilen der Karte 00 haben keinen Pfad (Dateien nicht im Repo). Das alte `presets/03-gamelan` ist durch `MMM-Gamelan` ersetzt (Datei für Datei identisch, vor dem Löschen geprüft).
 
-## 11. Für die Indonesien-Session — was zu tun ist, wenn du anfängst
-1. `git fetch`, auf `main` aufsetzen (enthält jetzt Sounds 03 und das Inventar). Dein Branch `claude/elegant-maxwell-yise0m` ist inhaltlich bereits in `main`.
-2. Neue Presets/Karten: eine Zeile pro Sound und Gerät im Inventar ergänzen (Skript im Stil von `build_inventory_card01.py`), Karte 04 usw. nummerieren. Die Karten 00 und 01 nicht umbenennen.
-3. Status in der CSV bleibt „berechnet“, bis der Owner sagt, dass er es gehört hat. Keine Klangbehauptungen ohne Hörprobe.
-4. Hub-Kacheln: nur eigene Zeilen ändern, Symbol eindeutig wählen (Latin-1 oder Block Elements), vorher `index.html` frisch holen.
-5. Die Saiten-Baustelle nicht anfassen, außer der Owner nimmt das Thema wieder auf.
+## 11. Für Sessions, die an Sounds arbeiten
+1. Arbeite in diesem Repo, nicht im öffentlichen. Hol `main`, bevor du anfängst.
+2. Neue Dateien nur unter `presets/` in der vorhandenen Ordnerstruktur ablegen; danach `python3 sounds-library/tools/build_inventory_presets.py` laufen lassen (aktualisiert die CSV samt Pfaden). Neue Karten ab 04; 00, 01, 02, 03 nicht umnummerieren.
+3. Status bleibt „berechnet“, bis der Owner sagt, dass er es gehört hat. Koto/Shamisen (Karte 02) bleiben „pausiert“.
+4. Hub-Kacheln und Apps gehören ins öffentliche Repo (`MMM-SESSIONS.md` dort lesen). Nichts Sound-bezogenes dorthin.
+5. Binärdateien nicht über Drive-MCP schreiben; per Download-Karte an den Owner.
