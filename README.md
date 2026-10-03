@@ -29,3 +29,8 @@ python3 tools/build_gamelan_collision.py ../MMM/gamelan-v2_0.html templates/Coll
 - Status im Inventar bleibt `berechnet`, bis der Owner sagt, dass er es in Live gehört hat.
 - Neue Karten ab 04; die Karten 00, 01 und 03 nicht umnummerieren.
 - Nach Änderungen an der Gamelan-App die Presets mit den Skripten neu erzeugen und das Inventar nachziehen.
+
+## Haftungsausschluss / Disclaimer
+Alle Inhalte dieses Repositorys (Presets, Skripte, Vorlagen, Audio-Referenzen) sind experimentell und werden ohne jede Gewähr bereitgestellt, ausdrücklich oder stillschweigend, auch nicht für die Eignung zu einem bestimmten Zweck. Die Nutzung erfolgt auf eigenes Risiko. Soweit gesetzlich zulässig, übernimmt der Autor keine Haftung für Schäden oder Verluste, die aus der Nutzung entstehen, insbesondere an Hardware (Synthesizer, Audio- und MIDI-Geräte, Lautsprecher, Gehör), an Projekten und Daten oder durch Ausfälle während eines Auftritts. Unberührt bleibt die Haftung für Vorsatz und grobe Fahrlässigkeit sowie für Schäden aus der Verletzung von Leben, Körper oder Gesundheit.
+
+Everything in this repository is experimental and provided "as is", without warranty of any kind. Use at your own risk; to the extent permitted by law, the author accepts no liability for any damage or loss arising from its use.
